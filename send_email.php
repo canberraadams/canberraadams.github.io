@@ -1,13 +1,28 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $to = "your-email@example.com"; // Change this to your email address
-    $subject = "New Contact Form Submission";
-    $message = "Name: $name\nEmail: $email";
-    mail($to, $subject, $message);
-    echo "Thank you for your submission!";
-} else {
-    echo "Error: Method not allowed";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require 'vendor/autoload.php'; // Path to autoload.php from PHPMailer
+
+$mail = new PHPMailer(true);
+try {
+    $mail->isSMTP();
+    $mail->Host = 'smtp.office365.com';
+    $mail->SMTPAuth = true;
+    $mail->Username = 'passwordreset@mikenet.xyz';
+    $mail->Password = 'Tuggersn001&!@';
+    $mail->SMTPSecure = 'tls';
+    $mail->Port = 587;
+
+    $mail->setFrom('passwordreset@mikenet.xyz', 'passwordreset@mikenet.xyz');
+    $mail->addAddress('canberraadams@outlook.com.au');
+
+    $mail->Subject = 'Test Email';
+    $mail->Body    = 'This is a test email.';
+
+    $mail->send();
+    echo 'Email sent successfully!';
+} catch (Exception $e) {
+    echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }
 ?>
