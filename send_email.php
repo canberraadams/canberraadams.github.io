@@ -10,7 +10,7 @@ try {
     $mail->Host = 'smtp.office365.com';
     $mail->SMTPAuth = true;
     $mail->Username = 'passwordreset@mikenet.xyz';
-    $mail->Password = 'Tuggersn001&!@';
+    $mail->Password = '';
     $mail->SMTPSecure = 'tls';
     $mail->Port = 587;
 
