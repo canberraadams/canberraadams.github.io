@@ -3,6 +3,6 @@ document.write(`
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="#">Contact</a>
+    <a href="contact.html">Contact</a>
   </nav>
 `);
